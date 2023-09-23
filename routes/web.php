@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\SubSpecialtyController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +40,28 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+
+
+
+
+    //shift route
+    Route::resource('shifts', ShiftController::class);
+
+    Route::get('/sub_specialties/{id}' ,[UserController::class , 'getSub_specialties'] );
+
+    //change User status
+    Route::get('user/active/{user}' ,[UserController::class  , 'active'])->name('user.active');
+
+    Route::get('user/inactive/{user}' ,[UserController::class  , 'inactive'])->name('user.inactive');
+
+    Route::get('user/disable/{user}' ,[UserController::class  , 'disable'])->name('user.disable');
+
+
+    Route::resource('user', UserController::class);
+
+    //role Route
+    Route::resource('roles', RoleController::class);
+
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
