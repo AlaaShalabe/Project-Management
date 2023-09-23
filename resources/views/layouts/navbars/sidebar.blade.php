@@ -20,18 +20,36 @@
 
                 <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
+
+                        <li @if ($pageSlug == 'shifts') class="active " @endif>
+                            <a href="{{ route('shifts.index') }}">
+                                <i class="tim-icons icon-time-alarm"></i>
+                                <p>{{ _('Shift Management') }}</p>
+                            </a>
+                        </li>
+
                         <li @if ($pageSlug == 'profile') class="active " @endif>
                             <a href="{{ route('profile.edit') }}">
                                 <i class="tim-icons icon-single-02"></i>
                                 <p>{{ _('User Profile') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'users') class="active " @endif>
-                            <a href="{{ route('user.index') }}">
-                                <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ _('User Management') }}</p>
-                            </a>
-                        </li>
+                        @can('user-list')
+                            <li @if ($pageSlug == 'users') class="active " @endif>
+                                <a href="{{ route('user.index') }}">
+                                    <i class="tim-icons icon-bullet-list-67"></i>
+                                    <p>{{ _('User Management') }}</p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('role-list')
+                            <li @if ($pageSlug == 'roles') class="active " @endif>
+                                <a href="{{ route('roles.index') }}">
+                                    <i class="tim-icons icon-settings"></i>
+                                    <p>{{ _('Role Management') }}</p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </div>
             </li>

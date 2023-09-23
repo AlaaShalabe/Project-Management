@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable ,  HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -18,8 +19,19 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+
+        'sub_specialty_id',
+        'shift_id',
         'name',
         'email',
+        'join_date',
+        'birth_date',
+        'phone_number',
+        'address',
+        'gender',
+        'status',
+        'photo',
+        'roles_name',
         'password',
     ];
 
@@ -40,6 +52,20 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'join_date' => 'datetime',
+        'birth_date' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $dates= ['join_date' , 'birth_date'];
+
+
+    public function sub_specialty()
+    {
+        return $this->belongsTo(SubSpecialty::class);
+    }
+
+    public function shifts()
+    {
+        return $this->belongsTo(Shift::class ,'shift_id' ,'id');
+    }
 }

@@ -10691,7 +10691,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 
 .btn.dropdown-toggle:after,
 .navbar .navbar-nav>a.btn.dropdown-toggle:after {
-  margin-left: 30px !important;
+  margin-left: 0px !important;
 }
 
 .btn-primary {
@@ -17954,7 +17954,7 @@ Copyright (c) 2015 Daniel Eden
 
 .white-content.bd-docs .bd-example {
   background: linear-gradient(#f5f6fa, #f5f6fa);
-}  
+}
 
 .breadcrumb-item.active {
   color: rgba(34, 42, 66, 0.7);
