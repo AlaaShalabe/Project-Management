@@ -27,6 +27,13 @@ class UserController extends Controller
         return view('users.index' , ['users' => $users]);
     }
 
+     //Show All Users [Card]
+     public function userCard()
+     {
+         $users = User::all();
+         return view('users.card' , ['users' => $users]);
+     }
+
     public function show(User $user)
     {
         $shifts = Shift::all();

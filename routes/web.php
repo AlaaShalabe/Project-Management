@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('user/disable/{user}' ,[UserController::class  , 'disable'])->name('user.disable');
 
-
+    Route::get('user/all/card' ,[UserController::class  , 'userCard'])->name('user.card');
     Route::resource('user', UserController::class);
 
     //role Route

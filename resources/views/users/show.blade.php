@@ -70,8 +70,12 @@
         </div>
     </div>
 
+    <div class="col-md-12  text-center">
+        <a href="{{ route('user.edit', $user) }}" class="btn btn-fill btn-warning">{{ _('Edit') }}</a>
+    </div>
+
     {{-- //footer --}}
-    <div class="row" style="margin-left:450px">
+    <div class="row" style="margin-left:420px">
         <div class="card-footer">
             <div class="button-container">
                 <button class="btn btn-icon btn-round btn-facebook">
