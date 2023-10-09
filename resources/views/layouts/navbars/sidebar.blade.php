@@ -36,7 +36,7 @@
                         </li>
                         @can('user-list')
                             <li @if ($pageSlug == 'users') class="active " @endif>
-                                <a href="{{ route('user.index') }}">
+                                <a href="{{ route('user.card') }}">
                                     <i class="tim-icons icon-bullet-list-67"></i>
                                     <p>{{ _('User Management') }}</p>
                                 </a>

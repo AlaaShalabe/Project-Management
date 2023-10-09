@@ -12,9 +12,13 @@
                                     <h4 class="card-title "><strong>All Users</strong> </h4>
 
                                 </div>
-                                <div class="col-4 text-right">
-                                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">Add
-                                        User</a>
+                                <div class="col-auto float-right ml-auto">
+                                    <a href="{{ route('user.card') }}" class="grid-view btn btn-link "><i
+                                            class="fa fa-th"></i></a>
+                                    <a href="{{ route('user.index') }}" class="list-view btn btn-link"><i
+                                            class="fa fa-bars"></i></a>
+                                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary"><i
+                                            class="fa fa-plus"></i> Add User</a>
                                 </div>
                             </div>
                         </div>
